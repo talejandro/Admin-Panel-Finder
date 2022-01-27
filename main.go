@@ -36,7 +36,7 @@ func linkfile(site string) {
 
 func main() {
 
-	site := "https://itu.uncuyo.edu.ar"
+	site := "https:exaple.com"
 	linkfile(site)
 
 }
