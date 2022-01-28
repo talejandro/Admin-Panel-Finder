@@ -1,3 +1,14 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"time"
+)
+
 func linkfile(site string) {
 
 	LFile, err := os.Open("link.txt")
@@ -36,3 +47,4 @@ func main() {
 	timetotal := time.Since(inicio)
 
 	fmt.Println(timetotal)
+}
