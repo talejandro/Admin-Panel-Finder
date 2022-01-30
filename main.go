@@ -12,7 +12,7 @@ import (
 func main() {
 	inicio := time.Now()
 
-	site := "https://itu.uncuyo.edu.ar/" //change here
+	site := "https://ejemplo.com/" //change here
 
 	linkfile(site)
 
