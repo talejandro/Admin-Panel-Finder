@@ -12,7 +12,7 @@ import (
 func main() {
 	inicio := time.Now()
 
-	site := "https://ejemplo.com" //change here
+	site := "https://ejemplo.com/" //change here
 
 	linkfile(site)
 
@@ -31,7 +31,7 @@ func linkfile(site string) {
 	fileScan := bufio.NewScanner(LFile)
 	cont := 1
 	for fileScan.Scan() {
-		page := site + "/" + fileScan.Text()
+		page := site + fileScan.Text()
 		cont = cont + 1
 		u, err := http.Get(page)
 
