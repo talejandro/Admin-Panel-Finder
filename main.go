@@ -9,6 +9,18 @@ import (
 	"time"
 )
 
+func main() {
+	inicio := time.Now()
+
+	site := "https://ejemplo.com" //change here
+
+	linkfile(site)
+
+	timetotal := time.Since(inicio)
+
+	fmt.Println(timetotal)
+}
+
 func linkfile(site string) {
 
 	LFile, err := os.Open("link.txt")
@@ -26,25 +38,16 @@ func linkfile(site string) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		if u.StatusCode == 200 {
+		switch u.StatusCode {
+		case 200:
 			fmt.Println(page, "-OK---", cont)
-		} else if u.StatusCode == 403 {
-			fmt.Println(page, "-Forbidden---", cont)
-		} else if u.StatusCode == 301 {
+		case 403:
+			fmt.Println(page, "-OK---", cont)
+		case 301:
 			fmt.Println(page, "-Moved Permanently---", cont)
+		default:
 		}
 	}
 
 	LFile.Close()
-}
-func main() {
-	inicio := time.Now()
-
-	site := "https://ejemplo.com"
-
-	linkfile(site)
-
-	timetotal := time.Since(inicio)
-
-	fmt.Println(timetotal)
 }
