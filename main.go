@@ -12,7 +12,7 @@ import (
 func main() {
 	inicio := time.Now()
 
-	site := "https://ejemplo.com/" //change here
+	site := "https://itu.uncuyo.edu.ar/" //change here
 
 	linkfile(site)
 
@@ -42,12 +42,11 @@ func linkfile(site string) {
 		case 200:
 			fmt.Println(page, "-OK---", cont)
 		case 403:
-			fmt.Println(page, "-OK---", cont)
+			fmt.Println(page, "-Forbidden---", cont)
 		case 301:
 			fmt.Println(page, "-Moved Permanently---", cont)
 		default:
 		}
 	}
-
 	LFile.Close()
 }
